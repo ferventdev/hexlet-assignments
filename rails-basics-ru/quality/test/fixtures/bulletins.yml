@@ -1,0 +1,14 @@
+one:
+  title: title1
+  body: body1
+  published: true
+
+two:
+  title: title2
+  body: body2
+  published: true
+
+three:
+  title: title3
+  body: body3
+  published: false
