@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: name1
+  description: desc1
+  status: new
+  creator: cr1
+  performer: p1
+  completed: false
+
+two:
+  name: name2
+  description: desc2
+  status: done
+  creator: cr2
+  performer: p2
+  completed: true

@@ -1,0 +1,9 @@
+<h1><%= @task.name %></h1>
+
+<h2>Status: <b><%= @task.status %></b>. Completed: <%= @task.completed %>. Performer: <%= @task.performer %></h2>
+<p>Description: <%= @task.description %></p>
+<small>Creator: <%= @task.creator %> on <%= @task.created_at.in_time_zone('Moscow').strftime("%H:%m %d.%m.%y") %></small><br>
+<br><br>
+<%= link_to 'Back', root_path %>
+<%= link_to 'Edit', edit_task_path(@task) %>
+<%= link_to 'Delete', task_path(@task), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
