@@ -1,0 +1,35 @@
+<%# https://guides.rubyonrails.org/form_helpers.html %>
+<%= form_with model: task do |form| %>
+
+  <b><%= form.label :name %></b><br>
+  <%= form.text_field :name %>
+  <i><%= task.errors.full_messages_for(:name).join(' ') if task.errors.present? %></i><br>
+  <br>
+
+  <b><%= form.label :status %></b><br>
+  <%= form.select :status, ["new", "in_progress", "on_review", "in_testing", "done"] %>
+  <i><%= task.errors.full_messages_for(:status).join(' ') if task.errors.present? %></i><br>
+  <br>
+
+  <b><%= form.label :description %></b><br>
+  <%= form.text_area :description %>
+  <i><%= task.errors.full_messages_for(:description).join(' ') if task.errors.present? %></i><br>
+  <br>
+
+  <b><%= form.label :creator %></b><br>
+  <%= form.text_field :creator %>
+  <i><%= task.errors.full_messages_for(:creator).join(' ') if task.errors.present? %></i><br>
+  <br>
+
+  <b><%= form.label :performer %></b><br>
+  <%= form.text_field :performer %>
+  <i><%= task.errors.full_messages_for(:performer).join(' ') if task.errors.present? %></i><br>
+  <br>
+
+  <b><%= form.label :completed %></b><br>
+  <%= form.select :completed, [false, true] %>
+  <i><%= task.errors.full_messages_for(:completed).join(' ') if task.errors.present? %></i><br>
+  <br>
+
+  <%= form.submit %>
+<% end %>
