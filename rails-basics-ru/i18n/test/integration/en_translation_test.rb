@@ -3,92 +3,92 @@
 require 'test_helper'
 
 class EnTranslationTest < ActionDispatch::IntegrationTest
-  # def setup
-  #   @post = posts :without_comments
-  #   @locale = :en
+  def setup
+    @post = posts :without_comments
+    @locale = :en
 
-  #   @post_attrs = {
-  #     title: Faker::Movies::Ghostbusters.character,
-  #     body: Faker::Movies::Ghostbusters.quote
-  #   }
+    @post_attrs = {
+      title: Faker::Movies::Ghostbusters.character,
+      body: Faker::Movies::Ghostbusters.quote
+    }
 
-  #   @post_comment_attrs = {
-  #     body: Faker::Movies::Lebowski.quote
-  #   }
-  # end
+    @post_comment_attrs = {
+      body: Faker::Movies::Lebowski.quote
+    }
+  end
 
-  # test 'home#index' do
-  #   get root_path(locale: @locale)
+  test 'home#index' do
+    get root_path(locale: @locale)
 
-  #   assert_select 'h1', text: 'Home page'
-  #   assert_select 'ul.nav', text: /Home/
-  #   assert_select 'ul.nav', text: /Posts/
-  #   assert_select 'footer', text: /Hexlet/
-  # end
+    assert_select 'h1', text: 'Home page'
+    assert_select 'ul.nav', text: /Home/
+    assert_select 'ul.nav', text: /Posts/
+    assert_select 'footer', text: /Hexlet/
+  end
 
-  # test 'posts#index' do
-  #   get posts_path(locale: @locale)
+  test 'posts#index' do
+    get posts_path(locale: @locale)
 
-  #   assert_select 'h1', text: 'Posts'
-  #   assert_select '#new-post-link', text: 'New Post'
-  # end
+    assert_select 'h1', text: 'Posts'
+    assert_select '#new-post-link', text: 'New Post'
+  end
 
-  # test 'posts#new' do
-  #   get new_post_path(locale: @locale)
+  test 'posts#new' do
+    get new_post_path(locale: @locale)
 
-  #   assert_select 'h1', text: 'New Post'
-  #   assert_select '.new_post>.btn-success[value=?]', 'Create Post'
-  #   assert_select '.new_post #post_title[placeholder=?]', 'Enter post title'
-  # end
+    assert_select 'h1', text: 'New Post'
+    assert_select '.new_post>.btn-success[value=?]', 'Create Post'
+    assert_select '.new_post #post_title[placeholder=?]', 'Enter post title'
+  end
 
-  # test 'posts#create check validation' do
-  #   post posts_url(locale: @locale), params: { post: { title: nil } }
+  test 'posts#create check validation' do
+    post posts_url(locale: @locale), params: { post: { title: nil } }
 
-  #   assert_response :unprocessable_entity
+    assert_response :unprocessable_entity
 
-  #   assert_select '.new_post .post_title .invalid-feedback', 'Title should be filled'
-  # end
+    assert_select '.new_post .post_title .invalid-feedback', 'Title should be filled'
+  end
 
-  # test 'posts#create successfully' do
-  #   post posts_url(locale: @locale), params: { post: @post_attrs }
+  test 'posts#create successfully' do
+    post posts_url(locale: @locale), params: { post: @post_attrs }
 
-  #   follow_redirect!
+    follow_redirect!
 
-  #   assert_select '.alert-info', 'Post was created.'
-  # end
+    assert_select '.alert-info', 'Post was created.'
+  end
 
-  # test 'posts#update' do
-  #   patch post_url(@post, locale: @locale), params: { post: @post_attrs }
+  test 'posts#update' do
+    patch post_url(@post, locale: @locale), params: { post: @post_attrs }
 
-  #   follow_redirect!
+    follow_redirect!
 
-  #   assert_select '.alert-info', 'Post was updated.'
-  # end
+    assert_select '.alert-info', 'Post was updated.'
+  end
 
-  # test 'posts#destroy' do
-  #   delete post_url(@post, locale: @locale)
+  test 'posts#destroy' do
+    delete post_url(@post, locale: @locale)
 
-  #   follow_redirect!
+    follow_redirect!
 
-  #   assert_select '.alert-info', 'Post was destroyed.'
-  # end
+    assert_select '.alert-info', 'Post was destroyed.'
+  end
 
-  # test 'comment#create' do
-  #   post post_comments_url(@post, locale: @locale), params: { post_comment: @post_comment_attrs }
+  test 'comment#create' do
+    post post_comments_url(@post, locale: @locale), params: { post_comment: @post_comment_attrs }
 
-  #   follow_redirect!
+    follow_redirect!
 
-  #   assert_select '.alert-info', 'Comment was created.'
-  # end
+    assert_select '.alert-info', 'Comment was created.'
+  end
 
-  # test 'comment#update' do
-  #   comment = post_comments(:one)
-  #   post = comment.post
+  test 'comment#update' do
+    comment = post_comments(:one)
+    post = comment.post
 
-  #   patch post_comment_url(post, comment, locale: @locale), params: { post_comment: @post_comment_attrs }
+    patch post_comment_url(post, comment, locale: @locale), params: { post_comment: @post_comment_attrs }
 
-  #   follow_redirect!
+    follow_redirect!
 
-  #   assert_select '.alert-info', 'Comment was updated.'
-  # end
+    assert_select '.alert-info', 'Comment was updated.'
+  end
 end
