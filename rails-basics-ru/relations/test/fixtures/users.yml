@@ -1,4 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 # BEGIN
+one:
+  name: MyName1
 
+two:
+  name: MyName2
+
+three:
+  name: MyName3
 # END
