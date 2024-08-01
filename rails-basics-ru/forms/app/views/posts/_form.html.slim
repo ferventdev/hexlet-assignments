@@ -1,21 +1,8 @@
-= form_for post do |f|
-  - if post.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(post.errors.count, 'error')} prohibited this post from being saved:"
-      ul
-        - post.errors.full_messages.each do |message|
-          li = message
+= simple_form_for(post) do |f|
+  .form-inputs
+    = f.input :title
+    = f.input :body
+    = f.input :summary
+    = f.input :published
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :body
-    = f.text_area :body
-  .field
-    = f.label :summary
-    = f.text_field :summary
-  .field
-    = f.label :published
-    = f.check_box :published
-  .actions = f.submit
+  = f.button :submit, class: 'btn-primary'
