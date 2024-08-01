@@ -48,3 +48,6 @@ Rails/ThreeStateBooleanColumn:
 
 Rails/FilePath:
   Enabled: false
+
+Rails/EagerEvaluationLogMessage:
+  Enabled: false
